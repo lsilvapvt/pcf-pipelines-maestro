@@ -48,12 +48,9 @@ updateS3ResourceParameters() {
     do
        set +e
        isParamEmpty=$(grep "$s3param" $configurationsFile | grep "^[^#;]" | cut -d ":" -f 2 | tr -d " " | cut -d "#" -f 1 )
-       echo "**** PARAM $s3param=[${isParamEmpty}]"
        set -e
        if [ -z "${isParamEmpty}" ]; then
-         echo " ##### GOT HERE 1 ! PARAM $s3param=[${isParamEmpty}]"
          if [ "${isParamEmpty}" == "" ]; then
-           echo " ##### GOT HERE 2 ! PARAM $s3param=[${isParamEmpty}]"
            sed -i "/$s3param/d" ./operations/opsfiles/pivnet-to-s3-bucket-opsmgr-entry.yml
            sed -i "/$s3param/d" ./operations/opsfiles/pivnet-to-s3-bucket-tile-entry.yml
            sed -i "/$s3param/d" ./operations/opsfiles/use-product-releases-from-s3-opsmgr.yml
