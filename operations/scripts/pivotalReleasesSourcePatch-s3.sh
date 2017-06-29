@@ -42,7 +42,8 @@ processS3PivotalReleasesSourcePatch() {
 updateS3ResourceParameters() {
     configurationsFile="${1}"
     # creates list of optional s3 params to check
-    printf "s3-region-name\ns3-endpoint\ns3-disable-ssl\ns3-use-v2-signing\n" > ./s3params.txt
+    printf "s3-endpoint\ns3-disable-ssl\ns3-use-v2-signing\n" > ./s3params.txt
+    # s3-region-name\n
     # iterates through list of s3 params and remove the ones that are commented out from template/patch files
     cat ./s3params.txt | while read s3param
     do
