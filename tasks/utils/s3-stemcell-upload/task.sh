@@ -12,7 +12,7 @@ echo "List of IaaS instances in use: $listOfIaaSInUse"
 s3RegionName=""
 s3DisableSSLCheck="false"
 s3v2Signing="false"
-s3BucketName=""
+s3BucketName="$S3_BUCKET"
 [ -n "$S3_ENDPOINT" ] && s3EndPointUrl=$S3_ENDPOINT
 [ -z "$S3_ENDPOINT" ] && s3EndPointUrl="s3-$s3RegionName.amazonaws.com" # per http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 
