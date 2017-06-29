@@ -13,9 +13,9 @@ download_dir="${root}/stemcell"
 mkdir -p "$download_dir"
 
 set +e
-s3EndPointUrl=$(grep "s3-endpoint" $MAIN_CONFIG_FILE | grep "^[^#;]" | cut -d " " -f 2 | tr -d " ")
-s3RegionName=$(grep "s3-region-name" $MAIN_CONFIG_FILE | grep "^[^#;]" | cut -d ":" -f 2 | cut -d "#" -f 1 | tr -d " ")
-s3DisableSSLCheck=$(grep "s3-disable-ssl" $MAIN_CONFIG_FILE | grep "^[^#;]" | cut -d ":" -f 2 | cut -d "#" -f 1 | tr -d " ")
+s3EndPointUrl=$S3_ENDPOINT
+s3RegionName=$S3_REGION_NAME
+s3DisableSSLCheck=$S3_DISABLE_SSL
 s3v2Signing=$(grep "s3-use-v2-signing" $MAIN_CONFIG_FILE | grep "^[^#;]" | cut -d ":" -f 2 | cut -d "#" -f 1 | tr -d " ")
 s3BucketName=$S3_BUCKET
 set -e

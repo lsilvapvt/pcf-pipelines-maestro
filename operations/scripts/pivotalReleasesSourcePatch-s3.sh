@@ -47,16 +47,21 @@ updateS3ResourceParameters() {
     cat ./s3params.txt | while read s3param
     do
        set +e
-       isParamEnabled=$(grep "$s3param" $configurationsFile | grep "^[^#;]" )
+       isParamEmpty=$(grep "$s3param" $configurationsFile | grep "^[^#;]" | cut -d ":" -f 2 | tr -d " " | cut -d "#" -f 1 )
+       echo "**** PARAM $s3param=[${isParamEmpty}]"
        set -e
-       if [ -z "${isParamEnabled}" ]; then
-         sed -i "/$s3param/d" ./operations/opsfiles/pivnet-to-s3-bucket-opsmgr-entry.yml
-         sed -i "/$s3param/d" ./operations/opsfiles/pivnet-to-s3-bucket-tile-entry.yml
-         sed -i "/$s3param/d" ./operations/opsfiles/use-product-releases-from-s3-opsmgr.yml
-         sed -i "/$s3param/d" ./operations/opsfiles/use-product-releases-from-s3-tiles.yml
-         # update files for single pipeline style
-         sed -i "/$s3param/d" ./operations/opsfiles/single-foundation-pipeline/single-pipeline-upgrade-opsmgr.yml
-         sed -i "/$s3param/d" ./operations/opsfiles/single-foundation-pipeline/single-pipeline-upgrade-tile.yml
+       if [ -z "${isParamEmpty}" ]; then
+         echo " ##### GOT HERE 1 ! PARAM $s3param=[${isParamEmpty}]"
+         if [ "${isParamEmpty}" == "" ]; then
+           echo " ##### GOT HERE 2 ! PARAM $s3param=[${isParamEmpty}]"
+           sed -i "/$s3param/d" ./operations/opsfiles/pivnet-to-s3-bucket-opsmgr-entry.yml
+           sed -i "/$s3param/d" ./operations/opsfiles/pivnet-to-s3-bucket-tile-entry.yml
+           sed -i "/$s3param/d" ./operations/opsfiles/use-product-releases-from-s3-opsmgr.yml
+           sed -i "/$s3param/d" ./operations/opsfiles/use-product-releases-from-s3-tiles.yml
+           # update files for single pipeline style
+           sed -i "/$s3param/d" ./operations/opsfiles/single-foundation-pipeline/single-pipeline-upgrade-opsmgr.yml
+           sed -i "/$s3param/d" ./operations/opsfiles/single-foundation-pipeline/single-pipeline-upgrade-tile.yml
+         fi
        fi
     done
 
@@ -153,7 +158,6 @@ createPivNetToS3Pipeline() {
       done
       # if at least one tile was found, then generate Pivnet-to-S3 pipeline
       if [ -e "./pivnet-to-s3-bucket-entry.yml" ]; then
-          cat -n ./pivnet-to-s3-bucket.yml
           echo "Setting Pivnet-to-S3 pipeline."
           ./fly -t "main" set-pipeline -p "pivnet-to-s3-bucket" -c ./pivnet-to-s3-bucket.yml -l "$configurationsFile" -l "$templateFoundationFilePath" -n
       else
