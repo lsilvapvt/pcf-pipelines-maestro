@@ -13,12 +13,11 @@ s3RegionName=""
 s3DisableSSLCheck="false"
 s3v2Signing="false"
 s3BucketName="$S3_BUCKET"
-[ -n "$S3_ENDPOINT" ] && s3EndPointUrl=$S3_ENDPOINT
-[ -z "$S3_ENDPOINT" ] && s3EndPointUrl="s3-$s3RegionName.amazonaws.com" # per http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
-
 [ -n "$S3_DISABLE_SSL" ] && s3DisableSSLCheck="$S3_DISABLE_SSL"
 [ -n "$S3_V2" ] && s3v2Signing="$S3_V2"
 [ -n "$S3_REGION_NAME" ] && s3RegionName="$S3_REGION_NAME"
+[ -n "$S3_ENDPOINT" ] && s3EndPointUrl=$S3_ENDPOINT
+[ -z "$S3_ENDPOINT" ] && s3EndPointUrl="s3-$s3RegionName.amazonaws.com" # per http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 
 setS3CLI "$S3_ACCESS_KEY_ID" "$S3_SECRET_ACCESS_KEY" "$s3v2Signing"
 
