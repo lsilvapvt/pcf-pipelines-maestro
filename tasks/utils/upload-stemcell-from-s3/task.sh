@@ -12,16 +12,16 @@ download_dir="${root}/stemcell"
 
 mkdir -p "$download_dir"
 
-set +e
-s3EndPointUrl=$S3_ENDPOINT
-s3RegionName=$S3_REGION_NAME
-s3DisableSSLCheck=$S3_DISABLE_SSL
-s3v2Signing=$(grep "s3-use-v2-signing" $MAIN_CONFIG_FILE | grep "^[^#;]" | cut -d ":" -f 2 | cut -d "#" -f 1 | tr -d " ")
-s3BucketName=$S3_BUCKET
-set -e
-[ -z "$s3EndPointUrl" ] && s3EndPointUrl="s3-$s3RegionName.amazonaws.com" # per http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
-[ -z "$s3DisableSSLCheck" ] && s3DisableSSLCheck="false"
-[ -z "$s3v2Signing" ] && s3v2Signing="false"
+s3RegionName=""
+s3DisableSSLCheck="false"
+s3v2Signing="false"
+s3BucketName=""
+[ -n "$S3_ENDPOINT" ] && s3EndPointUrl=$S3_ENDPOINT
+[ -z "$S3_ENDPOINT" ] && s3EndPointUrl="s3-$s3RegionName.amazonaws.com" # per http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+
+[ -z "$S3_DISABLE_SSL" ] && s3DisableSSLCheck="$S3_DISABLE_SSL"
+[ -z "$S3_V2" ] && s3v2Signing="$S3_V2"
+[ -z "$S3_REGION_NAME" ] && s3RegionName=$S3_REGION_NAME
 
 setS3CLI "$S3_ACCESS_KEY_ID" "$S3_SECRET_ACCESS_KEY" "$s3v2Signing"
 
