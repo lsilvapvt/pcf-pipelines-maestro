@@ -18,7 +18,7 @@ s3BucketName=""
 
 [ -n "$S3_DISABLE_SSL" ] && s3DisableSSLCheck="$S3_DISABLE_SSL"
 [ -n "$S3_V2" ] && s3v2Signing="$S3_V2"
-[ -n "$S3_REGION_NAME" ] && s3RegionName=$S3_REGION_NAME
+[ -n "$S3_REGION_NAME" ] && s3RegionName="$S3_REGION_NAME"
 
 setS3CLI "$S3_ACCESS_KEY_ID" "$S3_SECRET_ACCESS_KEY" "$s3v2Signing"
 
