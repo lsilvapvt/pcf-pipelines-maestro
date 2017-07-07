@@ -3,7 +3,6 @@ resources:
   type: git
   source:
     uri: {{maestro_project_url}}
-    private_key: {{git_private_key}}
 
 - name: pcf-pipelines
   type: git
