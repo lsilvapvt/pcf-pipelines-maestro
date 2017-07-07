@@ -16,7 +16,11 @@ processDebugEnablementConfig "./common/credentials.yml"  # determine if script d
 
 previous_concourse_url="" # initialize current concourse url variable
 
-parseConcourseCredentials "./common/credentials.yml" "true"
+# parseConcourseCredentials "./common/credentials.yml" "true"
+export cc_url=$MAIN_CONCOURSE_URL
+export cc_main_user=$MAIN_CONCOURSE_USERNAME
+export cc_main_pass=$MAIN_CONCOURSE_PASSWORD
+export skip_ssl_verification=$MAIN_CONCOURSE_SKIP_SSL
 
 # prepare Concourse FLY cli in the task container (see ./tasks/maestro/scripts/tools.sh)
 prepareTools "$cc_url"
@@ -37,8 +41,13 @@ for foundation in ./foundations/*.yml; do
     echo "Processing pipelines for foundation [$foundation_name] with IaaS [$iaasType]"
 
     # get Concourse credentials from foundation file (see ./tasks/maestro/scripts/concourse.sh)
-    parseConcourseCredentials "$foundation" "false"
-    parseConcourseFoundationCredentials "$foundation"
+    # parseConcourseCredentials "$foundation" "false"
+    # parseConcourseFoundationCredentials "$foundation"
+
+    export cc_url=$MAIN_CONCOURSE_URL
+    export cc_main_user=$MAIN_CONCOURSE_USERNAME
+    export cc_main_pass=$MAIN_CONCOURSE_PASSWORD
+    export skip_ssl_verification=$MAIN_CONCOURSE_SKIP_SSL
 
     concourseFlySync "$cc_url" "$previous_concourse_url" "main"
     previous_concourse_url=$cc_url     # save current concourse url
