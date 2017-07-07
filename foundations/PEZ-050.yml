@@ -19,7 +19,7 @@ BoM_tile_ERT_product_version: 1.10.*
 # BoM_tile_RabbitMQ_product_version: 1.7.*
 # BoM_tile_Redis_product_version: 1.7.*
 # BoM_tile_Metrics_product_version: 1.3.*
-# BoM_tile_SSO_product_version: 1.3.*
+BoM_tile_SSO_product_version: 1.4.*
 # BoM_tile_JMXBridge_product_version: 1.8.*
 # BoM_tile_NewRelic_product_version: 1.9.*
 # BoM_tile_SCS_product_version: 1.3.*
@@ -145,7 +145,7 @@ opsman_timeout_seconds: 1800 # Ops Manager timeout in seconds. e.g. 1800
 # admin user ID for the Concourse team to be created for the foundation. e.g. admin
 concourse_team_userid: admin
 # admin user ID for the Concourse team to be created for the foundation.
-concourse_team_pass: ((opsman_admin_password))
+concourse_team_pass: ((concourse_team_pass_PEZ-050))
 #    The four parameters below need to be defined only if the Concourse server
 #    for this foundation's team and pipelines differs from the one defined in /common/credentials.yml
 #
