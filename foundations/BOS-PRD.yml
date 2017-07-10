@@ -12,14 +12,14 @@
 # Uncomment the items that upgrade pipelines should be created for, then push it
 # to git and re-run the Maestro main pipeline for pipelines to be updated/created.
 # ********************* Ops Manager upgrade *****
-BoM_OpsManager_product_version: 1.11.5
+BoM_OpsManager_product_version: 1.11.2
 # ********************* PCF tiles upgrade *****
-BoM_tile_ERT_product_version: 1.11.*
+BoM_tile_ERT_product_version: 1.11.4
 # BoM_tile_MySQL_product_version: 1.9.*
 # BoM_tile_RabbitMQ_product_version: 1.7.*
-BoM_tile_Redis_product_version: 1.9.*
+# BoM_tile_Redis_product_version: 1.9.8
 # BoM_tile_Metrics_product_version: 1.3.*
-BoM_tile_SSO_product_version: 1.4.*
+# BoM_tile_SSO_product_version: 1.4.*
 # BoM_tile_JMXBridge_product_version: 1.8.*
 # BoM_tile_NewRelic_product_version: 1.9.*
 # BoM_tile_SCS_product_version: 1.3.*
@@ -125,20 +125,20 @@ pivnet_poll_interval: 1h
 # aws_vpc_id: CHANGEME
 # existing_opsman_vm_name: CHANGEME # Existing Ops Manager VM Name Pattern. This should uniquely filter to a running Ops Manager instance. eg.  myenv-OpsMan
 # ******* For VSPHERE **************************************
-vcenter_url: vcsa-01.haas-65.pez.pivotal.io # vCenter URL - exclude protocol. e.g. vcsa-01.haas.pivotal.io
-vcenter_username: pcf-vc-admin@vsphere.local  # vCenter Username. e.g. administrator@vsphere.local
-vcenter_password: ((vcenter_password))  # vCenter Password
+vcenter_url: vcsa-01.haas-102.pez.pivotal.io # vCenter URL - exclude protocol. e.g. vcsa-01.haas.pivotal.io
+vcenter_username: administrator@vsphere.local  # vCenter Username. e.g. administrator@vsphere.local
+vcenter_password: ((opsman_admin_password))  # vCenter Password
 vcenter_datacenter: Datacenter # vCenter Datacenter. e.g. Datacenter
-vcenter_cluster: A-Cluster # vCenter Cluster. e.g. Cluster
-vcenter_datastore: a-xio-beta # vCenter Datastore. e.g. LUN01
-vcenter_resource_pool: a-cluster-rp03 # vCenter Resource Pool. e.g. RP01
-opsman_vm_folder: /vm/m01 # vCenter Folder for Ops Mgr VM. e.g. /vm/env1
-opsman_ip: 10.193.251.23 # IP Address for the Ops Manager. e.g. 10.193.152.6
-netmask: 255.255.255.192 # Subnet Mask for the Ops Manager. e.g. 255.255.255.0
-gateway: 192.168.10.1 # Gateway IP Address for the Ops Manager. e.g. 10.193.152.1
-dns: 10.193.134.2 # DNS for the Ops Manager. e.g. 10.193.152.2
-ntp: 10.193.134.2 # NTP for the Ops Manager. e.g. 10.193.152.2
-opsman_network: "vxw-dvs-59-virtualwire-10-sid-1900008-labwire-21" # Network for the Ops Manager. e.g. "VM Network"
+vcenter_cluster: Cluster # vCenter Cluster. e.g. Cluster
+vcenter_datastore: LUN01 # vCenter Datastore. e.g. LUN01
+vcenter_resource_pool: RP01 # vCenter Resource Pool. e.g. RP01
+opsman_vm_folder: /vm/env1 # vCenter Folder for Ops Mgr VM. e.g. /vm/env1
+opsman_ip: 10.193.174.6 # IP Address for the Ops Manager. e.g. 10.193.152.6
+netmask: 255.255.255.0 # Subnet Mask for the Ops Manager. e.g. 255.255.255.0
+gateway: 10.193.174.1 # Gateway IP Address for the Ops Manager. e.g. 10.193.152.1
+dns: 10.193.174.2 # DNS for the Ops Manager. e.g. 10.193.152.2
+ntp: 10.193.174.2 # NTP for the Ops Manager. e.g. 10.193.152.2
+opsman_network: "VM Network" # Network for the Ops Manager. e.g. "VM Network"
 opsman_timeout_seconds: 1800 # Ops Manager timeout in seconds. e.g. 1800
 
 # *********** Credentials for Concourse Team ***********
