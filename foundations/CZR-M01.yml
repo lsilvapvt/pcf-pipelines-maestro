@@ -12,9 +12,9 @@
 # Uncomment the items that upgrade pipelines should be created for, then push it
 # to git and re-run the Maestro main pipeline for pipelines to be updated/created.
 # ********************* Ops Manager upgrade *****
-BoM_OpsManager_product_version: 1.11.5
+BoM_OpsManager_product_version: 1.10.
 # ********************* PCF tiles upgrade *****
-BoM_tile_ERT_product_version: 1.11.*
+BoM_tile_ERT_product_version: 1.10.*
 # BoM_tile_MySQL_product_version: 1.9.*
 # BoM_tile_RabbitMQ_product_version: 1.7.*
 BoM_tile_Redis_product_version: 1.9.*
