@@ -1,6 +1,13 @@
-![PCF Pipelines Maestro](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
+![PCF Pipelines Maestro](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
 
 # PCF Pipelines Maestro
+
+---
+
+***Note: This framework has been archived and is not maintained anymore since the deprecation of PCF Pipelines in 2019. 
+*It has been kept open here just for future reference as a sample of an pipelines automation framework implementation.*
+
+---
 
 Maestro implements a framework to automate the creation of customized [pcf-pipelines](https://github.com/pivotal-cf/pcf-pipelines) for multiple [PCF](https://pivotal.io/platform) deployments and to orchestrate the promotion of PCF components and tiles upgrades across foundations using the concept of **Bill of Materials**.  
 
@@ -18,7 +25,7 @@ The Maestro main pipeline iterates through the `foundations` folder's config fil
 2. customizes upgrade pipelines using the [yaml-patch tool](https://github.com/krishicks/yaml-patch) per customization options enabled  
 3. generates all selected upgrade pipelines for that foundation's Concourse team  
 
-![PCF Pipelines Maestro chart](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/maestro_chart01.png)
+![PCF Pipelines Maestro chart](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/maestro_chart01.png)
 
 
 ---
@@ -26,11 +33,11 @@ The Maestro main pipeline iterates through the `foundations` folder's config fil
 
 _For quick tests in development environments (with no need to fork Maestro repo), refer to the [Configure Maestro in a Test Environment](./docs/Test-Environment-Setup.md) document. For any other environments, please follow the instructions below._
 
-1. Fork the **Maestro** git project  https://github.com/pivotalservices/pcf-pipelines-maestro into your own git repository  
+1. Fork the **Maestro** git project  https://github.com/lsilvapvt/pcf-pipelines-maestro into your own git repository  
 
 1. Download/clone your own **Maestro** git repository   
   For example:
-  `git clone https://github.com/pivotalservices/pcf-pipelines-maestro.git`    
+  `git clone https://github.com/lsilvapvt/pcf-pipelines-maestro.git`    
   `cd pcf-pipelines-maestro`  
 
 1. Edit `./common/credentials.yml` and fill out all of its parameters for *SECTION A* following instructions in the file.  
