@@ -1,4 +1,4 @@
-![PCF Pipelines Maestro](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
+![PCF Pipelines Maestro](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
 
 # Configure Maestro in a Test Environment
 
@@ -6,7 +6,7 @@ When you just want to experiment with `pcf-pipelines-maestro` without the need t
 
 1. Clone both the `pcf-pipelines` and `pcf-pipelines-maestro` git projects in to your local machine:   
   `git clone https://github.com/pivotal-cf/pcf-pipelines.git`    
-  `git clone https://github.com/pivotalservices/pcf-pipelines-maestro.git`    
+  `git clone https://github.com/lsilvapvt/pcf-pipelines-maestro.git`    
 
 1. Edit `./pcf-pipelines-maestro/common/credentials.yml` and fill out all of its parameters following instructions in the file.  
 

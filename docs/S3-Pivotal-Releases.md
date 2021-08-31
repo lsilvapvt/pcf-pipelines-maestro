@@ -1,4 +1,4 @@
-![PCF Pipelines Maestro](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
+![PCF Pipelines Maestro](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
 
 ## Customizing pipelines to retrieve Pivotal releases from an S3 repository
 
@@ -12,7 +12,7 @@ When that customization rule is applied, all upgrade pipelines will monitor and 
 Once the `S3` customization is applied, all upgrade pipelines across all foundations will be adapted to use the [`S3` resource](https://github.com/concourse/s3-resource) (replacing the default [PivNet resource](https://github.com/pivotal-cf/pivnet-resource)). The S3 resource in each pipeline will monitor and download the corresponding Pivotal product's releases from the S3 repository.
 
 
-![s3-upgrade-tile-pipeline](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/s3-upgrade-tile-pipeline.png)
+![s3-upgrade-tile-pipeline](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/s3-upgrade-tile-pipeline.png)
 
 
 The S3 resource will expect a specific structure of folders and release file names in the repository, for example:
@@ -36,7 +36,7 @@ In order to automatically populate the S3 repository with the appropriate folder
 Maestro will scan configuration files to determine all PCF modules in use (e.g. ops-manager, tiles) and the infrastructure-as-a-service (IaaS) instances that foundations are deployed to in order to create a custom `PivNet-to-S3-bucket` pipeline that will download/upload only the release files in use by your upgrade pipelines.
 
 
-![pivnet-to-s3-bucket-pipeline](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/pivnet-to-s3-bucket-pipeline.png)
+![pivnet-to-s3-bucket-pipeline](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/pivnet-to-s3-bucket-pipeline.png)
 
 
 When a new tile upgrade pipeline is added to Maestro configuration files, or when a new foundation in a new IaaS is added to Maestro, then the `PivNet-to-S3-bucket` pipeline is updated accordingly, so the releases files for the new tile and the Ops-Manager for the added IaaS are appropriately handled by the pipeline.

@@ -1,4 +1,4 @@
-![PCF Pipelines Maestro](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
+![PCF Pipelines Maestro](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
 
 ## Customize the source of Pivotal product releases
 

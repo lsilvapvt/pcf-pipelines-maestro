@@ -1,4 +1,4 @@
-![PCF Pipelines Maestro](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
+![PCF Pipelines Maestro](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/maestro_combined_icon.png)
 
 ## Customize upgrade pipelines to have a separate Apply Changes job
 
@@ -12,7 +12,7 @@ In non-Test PCF environments (e.g. Production), operators usually require to hav
 Another reason for this customization is the fact that it allows for multiple tiles upgrade to be prepared (uploaded and then staged to Ops Manager), as well as field updates to the staged tiles configuration in the Ops Manager UI, before a one-time Apply Changes task is executed.    
 
 
-![Gated Apply Changes job](https://github.com/pivotalservices/pcf-pipelines-maestro/raw/master/common/images/maestro_gatedApplyChanges.png)
+![Gated Apply Changes job](https://github.com/lsilvapvt/pcf-pipelines-maestro/raw/master/common/images/maestro_gatedApplyChanges.png)
 
 
 ---
